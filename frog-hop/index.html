@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青蛙跳單位 - 視覺化換算練習</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Primary Math Lab</p>
+        <h1 id="page-title">🐸 青蛙跳單位</h1>
+        <p class="hero-text">
+          讓青蛙在單位荷葉上左右跳，看到每一步是乘以進率還是除以進率，快速理解長度、面積、容量、質量與體積換算。
+        </p>
+      </div>
+      <div class="score-card" aria-live="polite">
+        <span>今日練習</span>
+        <strong id="scoreText">0 / 0</strong>
+        <small>答對 / 題數</small>
+      </div>
+    </section>
+
+    <section class="panel controls" aria-label="換算控制台">
+      <div class="field">
+        <label for="categorySelect">選擇單位家族</label>
+        <select id="categorySelect"></select>
+      </div>
+
+      <div class="field">
+        <label for="valueInput">數字</label>
+        <input id="valueInput" type="number" inputmode="decimal" min="0" step="any" value="3.5">
+      </div>
+
+      <div class="field">
+        <label for="fromUnit">從</label>
+        <select id="fromUnit"></select>
+      </div>
+
+      <button class="swap-button" id="swapButton" type="button" aria-label="交換起點和終點">⇄</button>
+
+      <div class="field">
+        <label for="toUnit">跳到</label>
+        <select id="toUnit"></select>
+      </div>
+
+      <button class="primary-button" id="convertButton" type="button">讓青蛙跳！</button>
+    </section>
+
+    <section class="panel board" aria-label="單位跳躍視覺化">
+      <div class="board-top">
+        <div>
+          <h2 id="categoryTitle">長度單位</h2>
+          <p id="categoryHint">相鄰兩片荷葉的進率是 10。</p>
+        </div>
+        <span class="direction-pill" id="directionPill">準備起跳</span>
+      </div>
+
+      <div class="pond" id="pond" aria-label="單位荷葉路線"></div>
+
+      <div class="result-box">
+        <div>
+          <span class="result-label">換算結果</span>
+          <strong id="resultText">3.5 m = 350 cm</strong>
+        </div>
+        <button class="ghost-button" id="explainButton" type="button">看步驟</button>
+      </div>
+
+      <ol class="steps" id="stepsList" aria-live="polite"></ol>
+    </section>
+
+    <section class="panel challenge" aria-labelledby="challenge-title">
+      <div class="challenge-header">
+        <div>
+          <p class="eyebrow">Challenge</p>
+          <h2 id="challenge-title">隨機練習題</h2>
+        </div>
+        <button class="ghost-button" id="newQuestionButton" type="button">換一題</button>
+      </div>
+
+      <p class="question" id="questionText">按「換一題」開始練習。</p>
+
+      <div class="answer-row">
+        <input id="answerInput" type="number" inputmode="decimal" step="any" placeholder="輸入答案">
+        <span id="answerUnit" class="answer-unit"></span>
+        <button class="primary-button" id="checkButton" type="button">檢查答案</button>
+      </div>
+
+      <p class="feedback" id="feedbackText" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
