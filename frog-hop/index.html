@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青蛙跳單位 | Frog Hop Units</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar" aria-label="頁面導覽">
+      <a href="#converter">開始換算</a>
+      <a href="#practice">練習挑戰</a>
+      <a href="#guide">學習口訣</a>
+    </nav>
+    <div class="hero__content">
+      <p class="eyebrow">Frog Hop Units</p>
+      <h1>🐸 青蛙跳單位</h1>
+      <p class="hero__lead">
+        把單位換算變成小青蛙跳荷葉：往小單位跳，數字變大，用乘法；
+        往大單位跳，數字變小，用除法。
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#converter">立即試玩</a>
+        <a class="button button--ghost" href="#guide">先看口訣</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro card" id="guide">
+      <div>
+        <p class="section-kicker">核心概念</p>
+        <h2>用一條荷葉路建立單位大小感</h2>
+        <p>
+          每片荷葉同時顯示繁體中文、英文名稱和縮寫。學生先看清楚單位的大小順序，
+          再跟著青蛙一步一步跳，看到每一跳要乘幾或除幾。
+        </p>
+      </div>
+      <div class="chant" aria-label="青蛙跳單位口訣">
+        <span>往小跳，乘一乘。</span>
+        <span>往大跳，除一除。</span>
+        <span>中英一起看，單位記心間。</span>
+      </div>
+    </section>
+
+    <section class="converter" id="converter">
+      <div class="section-heading">
+        <p class="section-kicker">互動換算</p>
+        <h2>選一條荷葉路，讓小青蛙跳到答案</h2>
+        <p>支援呎、吋、厘米、磅、安士、斤、兩，以及尺、寸等常見學習單位。</p>
+      </div>
+
+      <div class="route-grid" id="routeButtons" aria-label="選擇單位路線"></div>
+
+      <div class="pond card">
+        <div class="pond__header">
+          <div>
+            <p class="section-kicker" id="activeRouteType">Length</p>
+            <h3 id="activeRouteTitle">英制與厘米長度</h3>
+          </div>
+          <p class="pond__hint" id="routeHint">大單位在左，小單位在右。</p>
+        </div>
+
+        <div class="leaf-track" id="leafTrack" aria-label="單位荷葉路"></div>
+
+        <form class="converter-form" id="converterForm">
+          <label>
+            <span>數值</span>
+            <input id="amountInput" type="number" inputmode="decimal" min="0" step="any" value="3" required>
+          </label>
+          <label>
+            <span>從</span>
+            <select id="fromUnit"></select>
+          </label>
+          <label>
+            <span>跳到</span>
+            <select id="toUnit"></select>
+          </label>
+          <button class="button button--primary" type="submit">青蛙起跳</button>
+        </form>
+      </div>
+
+      <section class="result-panel card" aria-live="polite">
+        <div class="frog-stage" id="frogStage">
+          <span class="frog" id="frog" aria-hidden="true">🐸</span>
+          <span class="splash" aria-hidden="true">💧</span>
+        </div>
+        <div>
+          <p class="section-kicker">換算結果</p>
+          <h3 id="answerTitle">3 呎 foot (ft) = 91.44 厘米 centimeter (cm)</h3>
+          <p id="directionText">青蛙往右跳到較小單位，所以每一步都用乘法。</p>
+        </div>
+        <ol class="steps" id="stepsList"></ol>
+      </section>
+    </section>
+
+    <section class="practice card" id="practice">
+      <div class="practice__copy">
+        <p class="section-kicker">練習挑戰</p>
+        <h2>先想方向，再填答案</h2>
+        <p id="challengeQuestion">載入題目中...</p>
+      </div>
+      <form class="practice__form" id="practiceForm">
+        <label>
+          <span>我的答案</span>
+          <input id="practiceAnswer" type="number" inputmode="decimal" min="0" step="any" placeholder="輸入答案">
+        </label>
+        <button class="button button--primary" type="submit">檢查</button>
+        <button class="button button--ghost" type="button" id="newChallenge">換一題</button>
+      </form>
+      <p class="feedback" id="practiceFeedback" aria-live="polite"></p>
+    </section>
+
+    <section class="unit-notes">
+      <div class="card">
+        <p class="section-kicker">Length 長度</p>
+        <h3>長度荷葉路</h3>
+        <ul>
+          <li>碼 yard / yd → 呎 foot / ft → 吋 inch / in → 厘米 centimeter / cm</li>
+          <li>尺 Chinese foot / chi → 寸 Chinese inch / cun → 厘米 centimeter / cm</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="section-kicker">Weight 重量</p>
+        <h3>重量荷葉路</h3>
+        <ul>
+          <li>磅 pound / lb → 安士 ounce / oz</li>
+          <li>斤 catty / jin → 兩 tael / leung</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>青蛙跳單位 Frog Hop Units · 讓單位換算看得見、跳得到、記得住。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
