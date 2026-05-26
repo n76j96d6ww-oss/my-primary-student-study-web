@@ -59,15 +59,15 @@ const routes = [
   {
     id: "weight-chinese",
     type: "Weight 重量",
-    title: "斤與兩",
-    description: "斤 catty → 兩 tael",
-    hint: "本頁採用常見教材設定：1 斤 catty = 16 兩 tael。",
+    title: "斤與兩／両",
+    description: "斤 catty → 兩／両 tael",
+    hint: "本頁採用常見教材設定：1 斤 catty = 16 兩／両 tael。",
     defaultFrom: "jin",
     defaultTo: "tael",
     defaultAmount: 3,
     units: [
       { key: "jin", zh: "斤", en: "catty", abbr: "jin" },
-      { key: "tael", zh: "兩", en: "tael", abbr: "leung" }
+      { key: "tael", zh: "兩／両", en: "tael", abbr: "leung" }
     ],
     factors: [
       { value: 16, label: "×16" }
